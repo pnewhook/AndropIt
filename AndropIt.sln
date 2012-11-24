@@ -5,6 +5,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropIt", "AndropIt\Androp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropIt.Core", "AndropItCore\AndropIt.Core.csproj", "{7AD1AC85-BD52-416C-B471-D5E9B6669C2C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{C1D6339D-D00D-4D6B-B686-D508DE08FBC0}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropItWeb", "AndropItWeb\AndropItWeb.csproj", "{60825833-A612-47D2-BDCF-009EECE42136}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +28,10 @@ Global
 		{7AD1AC85-BD52-416C-B471-D5E9B6669C2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AD1AC85-BD52-416C-B471-D5E9B6669C2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AD1AC85-BD52-416C-B471-D5E9B6669C2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60825833-A612-47D2-BDCF-009EECE42136}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60825833-A612-47D2-BDCF-009EECE42136}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60825833-A612-47D2-BDCF-009EECE42136}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60825833-A612-47D2-BDCF-009EECE42136}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
