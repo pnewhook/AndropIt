@@ -6,8 +6,8 @@
         <StackPanel>
             <Button Content="Push from Clipboard" x:Name="btnClipboard" Click="btnClipboard_Click" />
             <TextBox x:Name="txtContent" ></TextBox>
-            <Button x:Name="btnContent" Content="Push from Textbox"></Button>
-            <TextBlock x:Name="txtOutput" />
+            <Button x:Name="btnContent" Content="Push from Textbox" Click="btnContent_Click"></Button>
+            <TextBlock x:Name="txtOutput"/>
         </StackPanel>
     </Grid>
 </Window>

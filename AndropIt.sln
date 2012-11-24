@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropIt", "AndropIt\AndropIt.csproj", "{9016C665-E87F-4891-BCAA-CD5CBE3CFF80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropItCore", "AndropItCore\AndropItCore.csproj", "{7AD1AC85-BD52-416C-B471-D5E9B6669C2C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropIt.Core", "AndropItCore\AndropIt.Core.csproj", "{7AD1AC85-BD52-416C-B471-D5E9B6669C2C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
