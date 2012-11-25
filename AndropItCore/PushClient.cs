@@ -6,13 +6,14 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using AndropItWeb.Models;
 using Newtonsoft.Json.Linq;
 
 namespace AndropIt.Core
 {
     public class PushClient : IPushClient
     {
-        private readonly string serverUrl = "http://10.32.110.50:8080/";
+        private readonly string serverUrl = "http://localhost:65258/";
         
         public PushClient()
         {
@@ -21,13 +22,15 @@ namespace AndropIt.Core
 
         public string SendText(string text)
         {
+            Message message = new Message();
+            message.content = text;
             string type = DetermineType(text);
             Console.WriteLine(text + " is " + type);
             JObject json = new JObject();
             json.Add(new JProperty("content", text));
             json.Add(new JProperty("device_id", "1"));
             json.Add(new JProperty("type", type));
-            string resultText = DoPostRequest("andropit_test/drops", json);
+            string resultText = DoPostRequest("api/message", json);
             return resultText;
         }
   

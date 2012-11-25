@@ -8,6 +8,10 @@ namespace AndropItWeb.Models
 {
     public class AndropItDb : DbContext
     {
+        public AndropItDb():base("DefaultConnection")
+        {
+
+        }
         public DbSet<Message> Messagess { get; set; }
     }
 }

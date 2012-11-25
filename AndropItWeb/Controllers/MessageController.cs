@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using AndropItWeb.Models;
 
 namespace AndropItWeb.Controllers
 {
@@ -22,8 +23,14 @@ namespace AndropItWeb.Controllers
         }
 
         // POST api/message
-        public void Post([FromBody]string value)
+        public HttpResponseMessage Post([FromBody]
+                                        Message message)
         {
+            AndropItDb db = new AndropItDb();
+            db.Messagess.Add(message);
+            db.SaveChanges();
+
+            return Request.CreateResponse(HttpStatusCode.Created, message);
         }
 
         // PUT api/message/5
