@@ -6,7 +6,7 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using AndropItWeb.Models;
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace AndropIt.Core
@@ -23,13 +23,9 @@ namespace AndropIt.Core
         public string SendText(string text)
         {
             Message message = new Message();
-            message.content = text;
-            string type = DetermineType(text);
-            Console.WriteLine(text + " is " + type);
-            JObject json = new JObject();
-            json.Add(new JProperty("content", text));
-            json.Add(new JProperty("device_id", "1"));
-            json.Add(new JProperty("type", type));
+            message.content = text.Trim();
+            Console.WriteLine(message.content + " is " + message.type);
+            string json = JsonConvert.SerializeObject(message);
             string resultText = DoPostRequest("api/message", json);
             return resultText;
         }
@@ -55,7 +51,7 @@ namespace AndropIt.Core
 
         }
 
-        private string DoPostRequest(string action, JObject data)
+        private string DoPostRequest(string action, string data)
         {
             Uri url = new Uri(serverUrl + action);
             HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
@@ -63,7 +59,7 @@ namespace AndropIt.Core
             req.Method = "POST";
             using (var streamWriter = new StreamWriter(req.GetRequestStream()))
             {
-                streamWriter.Write(data.ToString());
+                streamWriter.Write(data);
             }
             HttpWebResponse httpResponse;
             try

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Web;
 
-namespace AndropItWeb.Models
+namespace AndropIt.Core
 {
     public class Message
     {
