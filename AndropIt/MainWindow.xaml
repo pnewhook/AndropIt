@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         Title="AndropIt" Height="205.845" Width="525"
-        MouseEnter="MetroWindow_MouseEnter_1" DragEnter="MetroWindow_DragEnter_1">
+        MouseEnter="MetroWindow_MouseEnter_1" DragEnter="MetroWindow_DragEnter_1" DragLeave="MetroWindow_DragLeave_1">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -21,7 +21,7 @@
             <TextBox x:Name="txtContent" ></TextBox>
             <Button x:Name="btnContent" Content="Push from Textbox" Click="btnContent_Click" Style="{DynamicResource SquareButtonStyle}"></Button>
             <TextBlock x:Name="txtOutput"/>
-            <TextBlock x:Name="txtDragText" AllowDrop="True" Height="75" Margin="0,0,0.4,0" Drop="txtDragText_Drop"/>   
+                <TextBlock x:Name="txtDragText" AllowDrop="True" Height="75" Margin="0,0,0.4,0" Drop="txtDragText_Drop"/>
         </StackPanel>
     </Grid>
 </Controls:MetroWindow>

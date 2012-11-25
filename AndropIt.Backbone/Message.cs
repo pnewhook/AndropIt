@@ -27,10 +27,6 @@ namespace AndropIt.Backbone
                 {
                     type = "email";
                 }
-                else if (value.IndexOf("http") == 0 && (value.EndsWith(".jpg") || value.EndsWith(".png")))
-                {
-                    type = "img_url";
-                }
                 else if (value.IndexOf("http") == 0)
                 {
                     type = "url";

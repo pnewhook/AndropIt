@@ -23,6 +23,7 @@ namespace AndropIt
     public partial class MainWindow : MetroWindow
     {
         IPushClient pc;
+        Brush beginBrush;
         public MainWindow()
         {
             pc = new PushClient();
@@ -116,7 +117,12 @@ namespace AndropIt
 
         private void MetroWindow_DragEnter_1(object sender, DragEventArgs e)
         {
-            
+            txtDragText.Background = new RadialGradientBrush(new Color(), new Color());
+        }
+
+        private void MetroWindow_DragLeave_1(object sender, DragEventArgs e)
+        {
+            txtDragText.Background = Brushes.White;
         }
 
     }
