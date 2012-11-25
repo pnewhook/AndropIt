@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -31,6 +32,11 @@ namespace AndropIt
             pc = new PushClient();
             InitializeComponent();
             SetPosition();
+        }
+
+        public void OnWindowsClose(object sender, CancelEventArgs e)
+        {
+            SuccessIcon.Dispose();
         }
 
         private void SetPosition()
@@ -67,22 +73,8 @@ namespace AndropIt
   
         private void LogOutput(string messageText, bool isSuccess)
         {
-            if (isSuccess == false)
-            {
-                var tb = (TaskbarIcon)FindResource("ErrorIcon");
-                tb.Visibility = System.Windows.Visibility.Visible;
-                Thread.Sleep(10000);
-                tb.Visibility = System.Windows.Visibility.Collapsed;
-            }
-            else
-            {
-                var tb = (TaskbarIcon)FindResource("SuccessIcon");
-                tb.Visibility = System.Windows.Visibility.Visible;
-                Thread.Sleep(10000);
-                tb.Visibility = System.Windows.Visibility.Collapsed;
-            }
+            SuccessIcon.ToolTipText = messageText;
         }
-
 
         private void txtDragText_Drop(object sender, DragEventArgs e)
         {

@@ -23,9 +23,17 @@ namespace AndropIt.Core
         public string SendFile(string path)
         {
             WebClient client = new WebClient();
-            
-            client.UploadFile(serverUrl + "andropit_test/rest/files", path);
-            return "Winning!";
+            try
+            {
+                client.UploadFile(serverUrl + "andropit_test/rest/files", path);
+                return "Winning!";
+
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+                return "Something wen't wrong";
+            }
         }
 
         public string SendText(string text)
@@ -55,7 +63,8 @@ namespace AndropIt.Core
             }
             catch (Exception exc)
             {
-                throw new Exception(string.Format("Problem with {0}, {1}", url, exc.Message));
+                Console.WriteLine(string.Format("Problem with {0}, {1}", url, exc.Message));
+                return "All messed up";
             }
             using (var streamReader = new StreamReader(httpResponse.GetResponseStream()))
             {
