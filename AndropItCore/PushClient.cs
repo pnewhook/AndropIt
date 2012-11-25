@@ -26,7 +26,7 @@ namespace AndropIt.Core
             message.content = text.Trim();
             Console.WriteLine(message.content + " is " + message.type);
             string json = JsonConvert.SerializeObject(message);
-            string resultText = DoPostRequest("andropit_test/drops", json);//"api/message"
+            string resultText = DoPostRequest("rest/andropit_test/drops", json);//"api/message"
             return resultText;
         }
   
