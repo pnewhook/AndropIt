@@ -5,11 +5,10 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
-namespace AndropIt.Core
+namespace AndropIt.Backbone
 {
     public class PushClient : IPushClient
     {
@@ -24,47 +23,29 @@ namespace AndropIt.Core
         {
             Message message = new Message();
             message.content = text.Trim();
-            Console.WriteLine(message.content + " is " + message.type);
             string json = JsonConvert.SerializeObject(message);
             string resultText = DoPostRequest("andropit_test/drops", json);//"api/message"
             return resultText;
         }
   
-        private string DetermineType(string text)
-        {
-            if (text.Contains('@'))
-            {
-                return "email";
-            }
-            
-            if (text.IndexOf("http") == 0)
-            {
-                return "url";
-            }
-            string potentialPhone = Regex.Replace(text, "[^.0-9]", string.Empty);
-            if (potentialPhone.Length != 0)
-            {
-                return "phone";
-            }
-            return "text";
-
-
-        }
-
         private string DoPostRequest(string action, string data)
         {
+            
             Uri url = new Uri(serverUrl + action);
             HttpWebRequest req = (HttpWebRequest)HttpWebRequest.Create(url);
             req.ContentType = "application/json";
             req.Method = "POST";
-            using (var streamWriter = new StreamWriter(req.GetRequestStream()))
-            {
-                streamWriter.Write(data);
-            }
+            
+            //using (var streamWriter = new StreamWriter(req.BeginGetRequestStream()))
+            //{
+            //    streamWriter.Write(data);
+            //    streamWriter.Flush();
+            //    streamWriter.Close();
+            //}
             HttpWebResponse httpResponse;
             try
             {
-                httpResponse = (HttpWebResponse)req.GetResponse();
+                httpResponse = (HttpWebResponse)req.GetResponseAsync();
             }
             catch (Exception exc)
             {

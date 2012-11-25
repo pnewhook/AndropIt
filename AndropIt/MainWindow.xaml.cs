@@ -13,19 +13,28 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AndropIt.Core;
+using MahApps.Metro.Controls;
 
 namespace AndropIt
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : MetroWindow
     {
         IPushClient pc;
         public MainWindow()
         {
             pc = new PushClient();
             InitializeComponent();
+            SetPosition();
+        }
+
+        private void SetPosition()
+        {
+            Topmost = true;
+            Left = SystemParameters.PrimaryScreenWidth - this.Width - 30;
+            Top = SystemParameters.PrimaryScreenHeight - this.Height - 40;
         }
 
         private void btnClipboard_Click(object sender, RoutedEventArgs e)
@@ -51,7 +60,6 @@ namespace AndropIt
                 {
                     throw;
                 }
-
         }
   
         private void LogOutput(string messageText, bool isSuccess)
@@ -88,5 +96,28 @@ namespace AndropIt
             }
 
         }
+
+        private void txtDragText_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.Text))
+            {
+                string dropText = e.Data.GetData(DataFormats.Text) as string;
+                string text = dropText.Trim();
+
+                pc.SendText(text);
+                LogOutput("Dropped " + dropText, true);
+            }
+        }
+
+        private void MetroWindow_MouseEnter_1(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void MetroWindow_DragEnter_1(object sender, DragEventArgs e)
+        {
+            
+        }
+
     }
 }

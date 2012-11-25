@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Web;
 
-namespace AndropIt.Core
+namespace AndropIt.Backbone
 {
     public class Message
     {
@@ -24,10 +23,15 @@ namespace AndropIt.Core
             set
             {
                 _content = value;
-                if (value.Contains('@'))
+                if (value.Contains("@"))
                 {
                     type = "email";
-                } else if (value.IndexOf("http") == 0)
+                }
+                else if (value.IndexOf("http") == 0 && (value.EndsWith(".jpg") || value.EndsWith(".png")))
+                {
+                    type = "img_url";
+                }
+                else if (value.IndexOf("http") == 0)
                 {
                     type = "url";
                 } else if (Regex.Replace(value, "[^.0-9]", string.Empty).Length != 0)
