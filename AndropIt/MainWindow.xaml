@@ -8,7 +8,7 @@
         <Rectangle RadiusX="5" RadiusY="5" Fill="LightGray" Opacity="0.7" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="70" >
 
         </Rectangle>
-        <Image Opacity="0.2" Source="bkg.png" Canvas.Left="20" Canvas.Top="18" MouseDown="btnClipboard_Click" AllowDrop="True" Drop="txtDragText_Drop" />
+        <Image Opacity="0.2" Source="bkg.png" Canvas.Left="20" Canvas.Top="18" MouseDown="btnClipboard_Click" AllowDrop="True" Drop="txtDragText_Drop" DragEnter="Image_DragEnter_1" />
 
 
     </Canvas>

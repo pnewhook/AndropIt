@@ -7,5 +7,6 @@ namespace AndropIt.Backbone
     public interface IPushClient
     {
         string SendText(string clipboardText);
+        string SendFile(string path);
     }
 }

@@ -30,10 +30,16 @@ namespace AndropIt.Core
                 } else if (value.IndexOf("http") == 0)
                 {
                     type = "url";
-                } else if (Regex.Replace(value, "[^.0-9]", string.Empty).Length != 0)
+                }
+                else if (Regex.IsMatch(value, @"^[0-9\(\)\- +]+$"))
                 {
                     type =  "phone";
-                } else
+                }
+                else if (Regex.IsMatch(value,@"\w\d, +\w"))
+                {
+                    type = "addr";
+                }
+                else
                 {
                     type = "text";
                 }

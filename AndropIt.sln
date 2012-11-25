@@ -16,8 +16,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropItWeb", "AndropItWeb\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropIt8", "AndropIt8\AndropIt8.csproj", "{51ACCCCB-FF1E-4E96-8B26-ED8A8615375B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AndropIt.Backbone", "AndropIt.Backbone\AndropIt.Backbone.csproj", "{762EDD09-71A0-4F33-8BC5-949A3E719204}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -84,16 +82,6 @@ Global
 		{51ACCCCB-FF1E-4E96-8B26-ED8A8615375B}.Release|x86.ActiveCfg = Release|x86
 		{51ACCCCB-FF1E-4E96-8B26-ED8A8615375B}.Release|x86.Build.0 = Release|x86
 		{51ACCCCB-FF1E-4E96-8B26-ED8A8615375B}.Release|x86.Deploy.0 = Release|x86
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Debug|ARM.ActiveCfg = Debug|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Release|Any CPU.Build.0 = Release|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Release|ARM.ActiveCfg = Release|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Release|x64.ActiveCfg = Release|Any CPU
-		{762EDD09-71A0-4F33-8BC5-949A3E719204}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -9,5 +9,6 @@ namespace AndropIt.Core
     public interface IPushClient
     {
         string SendText(string clipboardText);
+        string SendFile(string path);
     }
 }

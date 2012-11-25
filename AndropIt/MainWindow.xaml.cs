@@ -86,6 +86,11 @@ namespace AndropIt
 
         private void txtDragText_Drop(object sender, DragEventArgs e)
         {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+                pc.SendFile(files[0]);
+            }
             if (e.Data.GetDataPresent(DataFormats.Text))
             {
                 string dropText = e.Data.GetData(DataFormats.Text) as string;
@@ -93,6 +98,17 @@ namespace AndropIt
 
                 pc.SendText(text);
                 LogOutput("Dropped " + dropText, true);
+                return;
+            }
+
+        }
+
+        private void Image_DragEnter_1(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop,false))
+            {
+                e.Effects = DragDropEffects.Copy;
+
             }
         }
     }
