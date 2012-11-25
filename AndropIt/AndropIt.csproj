@@ -112,8 +112,9 @@
       <Name>AndropIt.Core</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Assets\" />
+    <Resource Include="Assets\dropimage.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
