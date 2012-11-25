@@ -1,27 +1,15 @@
-﻿<Controls:MetroWindow x:Class="AndropIt.MainWindow"
+﻿<Window x:Class="AndropIt.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        Title="AndropIt" Height="205.845" Width="525"
-        MouseEnter="MetroWindow_MouseEnter_1" DragEnter="MetroWindow_DragEnter_1" DragLeave="MetroWindow_DragLeave_1">
-    <Window.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Colours.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Fonts.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/Blue.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/MahApps.Metro;component/Styles/Accents/BaseLight.xaml" />
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </Window.Resources>
-    <Grid>
-        <StackPanel>
-            <Button Content="Push from Clipboard" x:Name="btnClipboard" Click="btnClipboard_Click" Style="{DynamicResource SquareButtonStyle}" />
-            <TextBox x:Name="txtContent" ></TextBox>
-            <Button x:Name="btnContent" Content="Push from Textbox" Click="btnContent_Click" Style="{DynamicResource SquareButtonStyle}"></Button>
-            <TextBlock x:Name="txtOutput"/>
-                <TextBlock x:Name="txtDragText" AllowDrop="True" Height="75" Margin="0,0,0.4,0" Drop="txtDragText_Drop"/>
-        </StackPanel>
-    </Grid>
-</Controls:MetroWindow>
+        xmlns:tb="http://www.hardcodet.net/taskbar"
+        Title="MainWindow" Height="90" Width="90"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent">
+    <Canvas >
+        <Rectangle RadiusX="5" RadiusY="5" Fill="LightGray" Opacity="0.7" HorizontalAlignment="Left" Height="70" Margin="10,10,0,0" VerticalAlignment="Top" Width="70" >
+
+        </Rectangle>
+        <Image Opacity="0.2" Source="bkg.png" Canvas.Left="20" Canvas.Top="18" MouseDown="btnClipboard_Click" AllowDrop="True" Drop="txtDragText_Drop" />
+
+
+    </Canvas>
+</Window>

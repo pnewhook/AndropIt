@@ -26,29 +26,8 @@ namespace AndropIt.Core
             message.content = text.Trim();
             Console.WriteLine(message.content + " is " + message.type);
             string json = JsonConvert.SerializeObject(message);
-            string resultText = DoPostRequest("rest/andropit_test/drops", json);//"api/message"
+            string resultText = DoPostRequest("andropit_test/rest/drops", json);//"api/message"
             return resultText;
-        }
-  
-        private string DetermineType(string text)
-        {
-            if (text.Contains('@'))
-            {
-                return "email";
-            }
-            
-            if (text.IndexOf("http") == 0)
-            {
-                return "url";
-            }
-            string potentialPhone = Regex.Replace(text, "[^.0-9]", string.Empty);
-            if (potentialPhone.Length != 0)
-            {
-                return "phone";
-            }
-            return "text";
-
-
         }
 
         private string DoPostRequest(string action, string data)

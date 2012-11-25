@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -13,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using AndropIt.Core;
+using Hardcodet.Wpf.TaskbarNotification;
 using MahApps.Metro.Controls;
 
 namespace AndropIt
@@ -20,7 +22,7 @@ namespace AndropIt
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : MetroWindow
+    public partial class MainWindow
     {
         IPushClient pc;
         Brush beginBrush;
@@ -67,36 +69,20 @@ namespace AndropIt
         {
             if (isSuccess == false)
             {
-                txtOutput.Foreground = Brushes.Red;
+                var tb = (TaskbarIcon)FindResource("ErrorIcon");
+                tb.Visibility = System.Windows.Visibility.Visible;
+                Thread.Sleep(10000);
+                tb.Visibility = System.Windows.Visibility.Collapsed;
             }
             else
             {
-                txtOutput.Foreground = Brushes.Black;
+                var tb = (TaskbarIcon)FindResource("SuccessIcon");
+                tb.Visibility = System.Windows.Visibility.Visible;
+                Thread.Sleep(10000);
+                tb.Visibility = System.Windows.Visibility.Collapsed;
             }
-            // TODO: Implement this method
-            this.txtOutput.Text =  messageText;
         }
 
-        private void btnContent_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtContent.Text == string.Empty)
-            {
-                LogOutput("Enter a value in the textbox", false);
-                return;
-            }
-            try
-            {
-                pc.SendText(txtContent.Text);
-                string successMessage = "Pushed " + txtContent.Text + " from text field";
-                LogOutput(successMessage, true);
-            }
-            catch (Exception)
-            {
-                
-                throw;
-            }
-
-        }
 
         private void txtDragText_Drop(object sender, DragEventArgs e)
         {
@@ -109,21 +95,5 @@ namespace AndropIt
                 LogOutput("Dropped " + dropText, true);
             }
         }
-
-        private void MetroWindow_MouseEnter_1(object sender, MouseEventArgs e)
-        {
-            
-        }
-
-        private void MetroWindow_DragEnter_1(object sender, DragEventArgs e)
-        {
-            txtDragText.Background = new RadialGradientBrush(new Color(), new Color());
-        }
-
-        private void MetroWindow_DragLeave_1(object sender, DragEventArgs e)
-        {
-            txtDragText.Background = Brushes.White;
-        }
-
     }
 }
